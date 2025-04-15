@@ -1,0 +1,223 @@
+/* General hero styling */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7rem;
+  background-color: #141e30;
+  color: white;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.hero-text {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.code-snippet {
+  flex: 1;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.code-snippet pre {
+  margin: 0;
+  overflow: hidden;
+  white-space: pre-wrap; /* Wrap long lines */
+  word-wrap: break-word;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  color: #00ff9d; /* Matches code color with overall theme */
+  line-height: 1.5;
+}
+
+.code-snippet code {
+  display: block;
+  white-space: pre-wrap;
+}
+
+.hero h1, .hero h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #ff1493;
+}
+
+.name {
+  color: #00ff9d;
+}
+
+/* Social icon styling */
+.social-icons a {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #ff1493;
+}
+
+/* Button styling */
+.cta-buttons {
+  margin-top: 1rem;
+  gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+  background-color: #c850c0;
+  background-image: linear-gradient(45deg, #c850c0, #4158d0);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+
+}
+
+
+
+.btn-primary:hover {
+  background-image: linear-gradient(45deg, #4158d0, #c850c0);
+}
+
+
+.btn-secondary:hover {
+  background-image: linear-gradient(45deg, #4158d0, #c850c0);
+}
+
+/* Scroll to Top Button Styling */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+}
+
+.scroll-to-top:hover {
+  background-color: #4338ca;
+}
+
+/* Media Queries for responsiveness */
+
+/* Medium screens (tablets, etc.) */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-text {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .code-snippet {
+    width: 100%;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary, .btn-secondary {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 2rem; /* Reduced padding for smaller screens */
+  }
+
+  .hero h1, .hero h2 {
+    font-size: 1.5rem; /* Smaller heading font size */
+  }
+
+  .hero-text {
+    margin-bottom: 1.5rem;
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+  }
+.social-icons{
+  font-size: 1rem;
+}
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-primary, .btn-secondary {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+  .hero h1, .hero h2 {
+    font-size: 1.3rem; /* Further reduced heading size */
+  }
+
+  .code-snippet pre {
+    font-size: 0.9rem; /* Smaller code font size */
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+  }
+  .hero {
+    padding: 4rem 2rem; /* Reduced padding for smaller screens */
+  }
+
+  .hero h1, .hero h2 {
+    font-size: 1.2rem; /* Smaller heading font size */
+  }
+
+  .hero-text {
+    margin-bottom: 1.2rem;
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+  }
+.social-icons{
+  font-size: 0.6rem;
+  width: 50%;
+  
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.btn-primary, .btn-secondary {
+  margin-right: 0;
+  margin-bottom: 1rem;
+}
+}

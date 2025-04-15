@@ -1,0 +1,157 @@
+/* Experience Section Styling */
+.experience-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f172a;
+  color: #fff;
+  padding: 50px;
+  position: relative;
+}
+
+.experience-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 100px;
+}
+
+.animated-image {
+  width: 35%; /* Adjust width as per your requirement */
+  display: flex;
+  justify-content: center;
+}
+
+.animated-image img {
+  width: 100%;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Keyframes for floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Experience List Styling */
+.experience-list-container {
+  width: 60%;
+}
+
+.experience-list-container h2 {
+  text-align: left;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.experience-item {
+  background: linear-gradient(135deg, #000000 50%, #4b0082 100%, #8a2be2 100%);
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.experience-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(222, 55, 252, 0.853);
+}
+
+/* Role and Icon Styling */
+.role-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.experience-icon {
+  margin-right: 10px;  
+  font-size: 1.5rem;    /* Adjust the size of the icon */
+  color: rgba(227, 104, 249, 0.673);     
+}
+
+.experience-role h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Date Styling */
+.experience-date {
+  display: block;
+  text-align: center;  
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #00ffab;
+}
+
+.experience-role p {
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+/* Media Queries for responsiveness */
+
+/* Medium screens (tablets, etc.) */
+@media (max-width: 768px) {
+  .experience-content {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    gap: 40px; /* Adjust gap for stacked items */
+  }
+
+  .animated-image {
+    width: 100%; /* Use full width */
+    order: 2; /* Position image below text */
+  }
+
+  .experience-list-container {
+    width: 100%; /* Full width for list container */
+    text-align: center; /* Center text for small screens */
+  }
+
+  .experience-list-container h2 {
+    font-size: 2rem; /* Reduce font size for headings */
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .experience-content {
+    padding: 20px; /* Reduce padding */
+  }
+
+  .experience-list-container h2 {
+    font-size: 1.5rem; /* Further reduce font size */
+  }
+
+  .experience-item {
+    padding: 8px; /* Reduce padding for experience items */
+  }
+
+  .experience-date {
+    font-size: 0.9rem; /* Smaller font size for dates */
+  }
+
+  .experience-role h3 {
+    font-size: 1rem;
+  }
+
+  .experience-role p {
+    font-size: 0.9rem;
+  }
+}
