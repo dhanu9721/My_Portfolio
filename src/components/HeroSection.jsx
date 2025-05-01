@@ -58,7 +58,7 @@ const HeroSection = () => {
           </div>
           <div className="cta-buttons">
     <button className="btn-primary">Contact Me</button>
-    <a href={`${process.env.PUBLIC_URL}/images/Dhananjay_CV_27_03.pdf`} download="My_Resume.pdf">
+    <a href={`${process.env.PUBLIC_URL}/images/Dhananjay_CV_30_4_25.pdf`} download="Dhananjay_Resume.pdf">
         <button className="btn-secondary">Get Resume</button>
     </a>
 </div>

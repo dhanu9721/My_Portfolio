@@ -38,7 +38,7 @@ const Contact = () => {
       <div className="contact-right ">
         <ul>
           <li><span role="img" aria-label="email">📧</span> dhanuverma9721@gmail.com</li>
-          <li><span role="img" aria-label="phone">📞</span> 1234567890</li>
+          <li><span role="img" aria-label="phone">📞</span> 8858318301</li>
           <li><span role="img" aria-label="location">📍</span> Crossing Republic ,Vijaynagar ,Ghaziabad</li>
         </ul>
         <div className="social-icons">
