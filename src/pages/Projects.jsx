@@ -11,7 +11,7 @@ const projects = [
   {
     name: 'Multiplayer Fish casino Game(Frontend & Backend)',
     description: 'Frontend Developed in Cocos & backend developed in Node js.',
-    imageUrl: `${process.env.PUBLIC_URL}/images/Screenshot (4).png`,
+    imageUrl: `${process.env.PUBLIC_URL}/images/slotGame.jpg`,
     githubLink: 'https://github.com/dhanu9721',
   },
   {
