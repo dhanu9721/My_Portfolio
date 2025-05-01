@@ -2,7 +2,7 @@ import React from 'react';
 import './Skills.css';
 
 const skills = [
-    { name: 'Javascript', image: `${process.env.PUBLIC_URL}/images/javaScript.svg` },
+    { name: 'Javascript', image: `${process.env.PUBLIC_URL}/images/javascript.svg` },
     { name: 'Typescript', image: `${process.env.PUBLIC_URL}/images/TypeScript.svg` },
     { name: 'C#', image: `${process.env.PUBLIC_URL}/images/CSharp.svg` },
     { name: 'Unity', image: `${process.env.PUBLIC_URL}/images/Unity.svg` },
@@ -12,7 +12,7 @@ const skills = [
     { name: 'Pixi Js', image: `${process.env.PUBLIC_URL}/images/Pixi.svg` },  
     { name: 'Node Js', image: `${process.env.PUBLIC_URL}/images/Node.js.svg` }, 
     { name: 'Git', image: `${process.env.PUBLIC_URL}/images/git.svg` },
-    { name: 'Javascript', image: `${process.env.PUBLIC_URL}/images/javaScript.svg` },
+    { name: 'Javascript', image: `${process.env.PUBLIC_URL}/images/javascript.svg` },
     { name: 'Typescript', image: `${process.env.PUBLIC_URL}/images/TypeScript.svg` },
     { name: 'C#', image: `${process.env.PUBLIC_URL}/images/CSharp.svg` },
     { name: 'Unity', image: `${process.env.PUBLIC_URL}/images/Unity.svg` },
