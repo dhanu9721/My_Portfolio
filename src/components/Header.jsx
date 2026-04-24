@@ -1,55 +1,69 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
+
+const navLinks = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/experience", label: "Experience" },
+  { to: "/skills", label: "Skills" },
+  { to: "/education", label: "Education" },
+  { to: "/projects", label: "Projects" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen((v) => !v);
+  const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   return (
-    <header className="header">
-      <div className="logo">Dhananjay Maurya</div>
-      <nav>
-        <ul className={menuOpen ? "open" : ""}>
-          <li>
-            <Link to="/" onClick={closeMenu}>Home</Link>
-          </li>
-          <li>
-            <Link to="/about" onClick={closeMenu}>About</Link>
-          </li>
-          <li>
-            <Link to="/experience" onClick={closeMenu}>Experience</Link>
-          </li>
-          <li>
-            <Link to="/skills" onClick={closeMenu}>Skills</Link>
-          </li>
-          <li>
-            <Link to="/education" onClick={closeMenu}>Education</Link>
-          </li>
-         
-          <li>
-            <Link to="/projects" onClick={closeMenu}>Projects</Link>
-          </li>
-          <li>
-            <Link to="/contact" onClick={closeMenu}>Contact</Link>
-          </li>
+    <header className={`header ${scrolled ? "is-scrolled" : ""}`}>
+      <Link to="/" className="logo" onClick={closeMenu}>
+        <span className="logo-mark">DM</span>
+        <span className="logo-text">Dhananjay<span className="logo-dot">.</span></span>
+      </Link>
+
+      <nav className={`nav ${menuOpen ? "is-open" : ""}`}>
+        <ul>
+          {navLinks.map((link) => (
+            <li key={link.to}>
+              <Link
+                to={link.to}
+                onClick={closeMenu}
+                className={location.pathname === link.to ? "active" : ""}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
-    
-      {/* Hamburger button */}
-      <div className={`hamburger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+
+      <button
+        className={`hamburger ${menuOpen ? "is-open" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
   );
 };

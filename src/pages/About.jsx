@@ -1,34 +1,66 @@
 import React from 'react';
 import './About.css';
 
+const stats = [
+  { value: '4+', label: 'Years Experience' },
+  { value: '15+', label: 'Shipped Games' },
+  { value: '3', label: 'Companies' },
+  { value: '∞', label: 'Cups of Chai' },
+];
+
 const About = () => {
-
   return (
-    <section className="who-am-i">
-      <h3 className='n'>About Us<hr/></h3>
-      <div className="who-am-i-content">
-        <div className="text-section">
-          <h2>Who I am?</h2>
-          <p>
-            My name is Dhananjay Maurya. I am a professional and enthusiastic programmer
-            in my daily life. I am a quick learner with a self-learning attitude.
-            I love to learn and explore new technologies and am passionate about 
-            problem-solving. I love almost all the stacks of web application development 
-            and love to make the web more open to the world. My core skill is based on 
-            JavaScript and I love to do most of the things using JavaScript. I am available 
-            for any kind of job opportunity that suits my skills and interests.
-          </p>
-        </div>
-        <div className="image-section">
-        <img src={`${process.env.PUBLIC_URL}/images/profileImage.jpeg`} alt="description" />
+    <section className="about-section">
+      <div className="section-heading reveal">
+        <span className="eyebrow">// Get to know me</span>
+        <h2>About Me</h2>
+        <span className="underline" />
+      </div>
 
+      <div className="about-grid">
+        <div className="about-image reveal">
+          <div className="about-image-wrap">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/profileImage.jpeg`}
+              alt="Dhananjay Maurya"
+            />
+            <div className="about-image-frame" />
+          </div>
+        </div>
+
+        <div className="about-text reveal">
+          <h3>Game Developer & Full-Stack JS Engineer</h3>
+          <p>
+            I'm <strong>Dhananjay Maurya</strong>, a passionate game developer with a
+            self-learning mindset and a love for JavaScript. I build fast, fun,
+            production-ready games — from slot and casino backends to multiplayer
+            fish-shooter and poker experiences.
+          </p>
+          <p>
+            Currently building gaming experiences at <strong>Paytm (Insurance)</strong>.
+            I enjoy solving gnarly problems, learning new stacks, and shipping
+            polished products that players actually love.
+          </p>
+
+          <ul className="about-chips">
+            <li><i className="fas fa-location-dot" /> Ghaziabad, India</li>
+            <li><i className="fas fa-graduation-cap" /> B.Tech CS, ABESIT</li>
+            <li><i className="fas fa-briefcase" /> 4+ years</li>
+            <li><i className="fas fa-language" /> English · Hindi</li>
+          </ul>
         </div>
       </div>
 
-    
+      <div className="about-stats">
+        {stats.map((s) => (
+          <div className="stat-card reveal" key={s.label}>
+            <div className="stat-value">{s.value}</div>
+            <div className="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
 
 export default About;
-

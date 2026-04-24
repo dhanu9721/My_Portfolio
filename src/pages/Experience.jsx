@@ -1,48 +1,68 @@
 import React from 'react';
 import './Experience.css';
-import { FaUserTie } from 'react-icons/fa'; 
 
 const experiences = [
   {
-    role: "GAME DEVELOPER",
-    company: "Gameium LLp.",
-    date: "June 2023 - Present",
+    role: "Senior Software Engineer — Frontend",
+    company: "Paytm (Insurance)",
+    date: "June 2025 — Present",
+    current: true,
+    description:
+      "Building Paytm's Motor and Health Insurance products. Ship customer-facing features with React.js and Next.js, and own Backend-for-Frontend (BFF) services in Node.js / Nest.js — API orchestration, data shaping, and integration with downstream services. Drove a 2–3% reduction in overall defect/drop-off rate across insurance flows.",
+    stack: ["React.js", "Next.js", "Nest.js", "Node.js", "TypeScript"],
   },
   {
-    role: "FULL STACK GAME DEVELOPER",
+    role: "Software Developer",
+    company: "Gameium LLP",
+    date: "June 2023 — June 2025",
+    description:
+      "Built interactive web applications with TypeScript, JavaScript and Node.js — handling both frontend and backend. Worked on core logic and multiplayer backend services, optimizing real-time performance and network communication.",
+    stack: ["TypeScript", "JavaScript", "Node.js", "WebSockets"],
+  },
+  {
+    role: "Software Developer",
     company: "GamixLabs",
-    date: "Nov 2021 - June 2023",
+    date: "Nov 2021 — June 2023",
+    description:
+      "Built HTML5 web applications and interactive experiences with JavaScript and TypeScript. Contributed to architecture, core logic and UI flows across multiple releases.",
+    stack: ["JavaScript", "TypeScript", "HTML5", "Cocos"],
   },
 ];
 
 const Experience = () => {
   return (
     <section className="experience-section">
-      <div className="experience-content">
-        {/* Animated Image Container */}
-        <div className="animated-image">
-        <img src={`${process.env.PUBLIC_URL}/images/expPurple.svg`} alt="Animated Laptop" />
-        </div>
+      <div className="section-heading reveal">
+        <span className="eyebrow">// What I've been up to</span>
+        <h2>Experience</h2>
+        <span className="underline" />
+      </div>
 
-        {/* Experience List */}
-        <div className="experience-list-container">
-         <div className='n'> <h2 >Experiences<hr style={{marginRight:"340px"}}/></h2></div>
-          <div className="experience-list">
-            {experiences.map((exp, index) => (
-              <div className="experience-item" key={index}>
-                <div className="experience-role">
-                <span className="experience-date text-center">{exp.date}</span>
-                  <div className="role-icon-container">
-                    <FaUserTie className="experience-icon" />
-                    <h3>{exp.role}</h3>
-                  </div>
-          
-                  <p>{exp.company}</p>
-                </div>
+      <div className="timeline">
+        <div className="timeline-line" />
+        {experiences.map((exp, i) => (
+          <div className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'} reveal`} key={i}>
+            <div className="timeline-dot">
+              {exp.current && <span className="dot-pulse" />}
+            </div>
+            <article className="timeline-card">
+              <div className="timeline-date">
+                <i className="far fa-calendar" /> {exp.date}
+                {exp.current && <span className="badge-current">Current</span>}
               </div>
-            ))}
+              <h3>{exp.role}</h3>
+              <div className="timeline-company">
+                <i className="fas fa-building" /> {exp.company}
+              </div>
+              <p>{exp.description}</p>
+              {exp.stack && (
+                <ul className="timeline-stack">
+                  {exp.stack.map((s) => <li key={s}>{s}</li>)}
+                </ul>
+              )}
+            </article>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

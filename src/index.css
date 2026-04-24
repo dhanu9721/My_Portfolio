@@ -1,14 +1,117 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color:  #0f172a;
+:root {
+  --bg-0: #070b1a;
+  --bg-1: #0b1226;
+  --bg-2: #111a35;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text-0: #f4f6ff;
+  --text-1: #c8d0e7;
+  --text-2: #8892b0;
+  --accent: #6c5ce7;
+  --accent-2: #00e0c6;
+  --accent-3: #ff4d8d;
+  --accent-glow: 0 0 40px rgba(108, 92, 231, 0.35);
+  --grad-primary: linear-gradient(135deg, #6c5ce7 0%, #00e0c6 100%);
+  --grad-warm: linear-gradient(135deg, #ff4d8d 0%, #ff9a3c 100%);
+  --grad-text: linear-gradient(90deg, #00e0c6 0%, #6c5ce7 50%, #ff4d8d 100%);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+  color: var(--text-0);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(108, 92, 231, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(0, 224, 198, 0.12), transparent 60%),
+    radial-gradient(800px 500px at 50% 120%, rgba(255, 77, 141, 0.10), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection {
+  background: rgba(108, 92, 231, 0.5);
+  color: #fff;
+}
+
+/* Shared section heading */
+.section-heading {
+  text-align: center;
+  margin: 0 auto 48px;
+  max-width: 800px;
+}
+.section-heading .eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+}
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-heading .underline {
+  display: block;
+  width: 70px;
+  height: 3px;
+  margin: 14px auto 0;
+  background: var(--grad-primary);
+  border-radius: 999px;
+}
+
+/* Reveal on scroll (auto via IntersectionObserver or class) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-0); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6c5ce7, #00e0c6);
+  border-radius: 10px;
 }

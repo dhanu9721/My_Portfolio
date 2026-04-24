@@ -1,115 +1,128 @@
-.who-am-i {
-  background-color: #0f172a; /* Dark blue background */
-  color: white;
-  padding: 40px 20px;
+.about-section {
+  padding: 100px 6vw;
   position: relative;
 }
 
-.who-am-i-content {
-  display: flex;
-  justify-content: flex-start;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-.text-section {
-  flex: 1;
-  margin-right: 20px;
-  padding: 10px;
+.about-image { display: flex; justify-content: center; }
+
+.about-image-wrap {
+  position: relative;
+  width: 320px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: visible;
+}
+.about-image-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+.about-image-frame {
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  border: 2px solid var(--accent-2);
+  border-radius: 20px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+.about-image-wrap:hover .about-image-frame {
+  transform: translate(-8px, -8px);
 }
 
-.text-section h2 {
-  color: #00ffab; /* Bright green for the heading */
+.about-text h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-0);
+  margin-bottom: 18px;
 }
-
-.text-section p {
-  color: #cbd5e1;
-  font-size: 18px;
-  line-height: 1.6;
+.about-text p {
+  color: var(--text-1);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  margin: 0 0 16px;
 }
+.about-text strong { color: var(--accent-2); font-weight: 600; }
 
-.image-section {
-  flex: 1;
+.about-chips {
   display: flex;
-  justify-content: center; /* Center image on smaller screens */
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.about-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  color: var(--text-1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.about-chips i { color: var(--accent-2); }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 80px auto 0;
+}
+.stat-card {
+  padding: 28px 20px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 4px;
 }
 
-.image-section img {
-  width: 40%; /* Adjust image size */
-  border-radius: 10px;
-  margin-left: 180px;
-  max-width: 100%; /* Ensure the image doesn't exceed the container */
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 50px; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
-.scroll-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4f46e5;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.scroll-top:hover {
-  background-color: #4338ca;
-}
-
-/* Media Queries for responsiveness */
-
-/* Medium screens (tablets, etc.) */
-@media (max-width: 768px) {
-  .who-am-i-content {
-    flex-direction: column; /* Stack content vertically */
-    align-items: flex-start; /* Align items to the left */
-  }
-
-  .text-section {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .image-section img {
-    width: 70%; /* Make the image larger for medium screens */
-    margin-left: 0; /* Remove left margin */
-  }
-}
-
-/* Small screens (phones) */
 @media (max-width: 480px) {
-  .who-am-i {
-    padding: 20px 10px; /* Reduce padding for smaller screens */
-  }
-
-  .text-section h2 {
-    font-size: 1.5rem; /* Smaller heading size */
-  }
-
-  .text-section p {
-    font-size: 16px; /* Smaller paragraph font size */
-  }
-
-  .image-section img {
-    width: 70%; /* Further increase image size for small screens */
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 320px) {
-  .text-section h2 {
-    font-size: 1.2rem; /* Further reduce heading size */
-  }
-
-  .text-section p {
-    font-size: 14px; /* Smaller text size */
-  }
-
-  .image-section img {
-    width: 100%; /* Image takes more space on extra small screens */
-  }
+  .about-section { padding: 70px 5vw; }
+  .about-image-wrap { width: 240px; }
+  .stat-value { font-size: 1.8rem; }
 }

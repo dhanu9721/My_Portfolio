@@ -1,54 +1,54 @@
 import React from 'react';
 import './Experience.css';
-import { FaUserTie } from 'react-icons/fa'; 
 
-const experiences = [
+const education = [
   {
-    role: "BACHELOR DEGREE IN COMPUTER SCIENCE",
-    company: "ABESIT College of Engineering.",
-    date: " 2018 - 22",
+    role: "B.Tech — Computer Science & Engineering",
+    company: "ABESIT College of Engineering",
+    date: "2018 — 2022",
+    description:
+      "Graduated with a strong foundation in data structures, algorithms, and software engineering. Built passion projects in Unity and web tech.",
   },
   {
-    role: "SENIOR SECONDARY CERTIFICATION EXAMINATION",
-    company: "St. Xavier's Ballia",
-    date: "2016 - 2018",
+    role: "Senior Secondary (12th)",
+    company: "St. Xavier's, Ballia",
+    date: "2016 — 2018",
+    description: "Science stream (PCM) — mathematics and computer science fundamentals.",
   },
   {
-    role: "SECONDARY SCHOOL CERTIFICATION EXAMINATION",
+    role: "Secondary (10th)",
     company: "Devasthaly VidyaPeeth",
-    date: "2013 - 2015",
+    date: "2013 — 2015",
+    description: "Core academics and early introduction to programming logic.",
   },
 ];
 
 const Education = () => {
   return (
     <section className="experience-section">
-      <div className="experience-content">
-        {/* Animated Image Container */}
-        <div className="animated-image">
-          <img src={`${process.env.PUBLIC_URL}/images/eduPurple.svg`} alt="Animated Laptop" />
-        </div>
+      <div className="section-heading reveal">
+        <span className="eyebrow">// Where I studied</span>
+        <h2>Education</h2>
+        <span className="underline" />
+      </div>
 
-        {/* Experience List */}
-        <div className="experience-list-container">
-         <div className='n'> <h2  >Educations<hr style={{marginRight:"340px"}}/></h2></div>
-          <div className="experience-list">
-            {experiences.map((exp, index) => (
-              <div className="experience-item" key={index}>
-                <div className="experience-role">
-                <span className="experience-date text-center">{exp.date}</span>
-                  <div className="role-icon-container">
-                    <FaUserTie className="experience-icon" />
-                    <h3>{exp.role}</h3>
-                  </div>
-          
-                  <p>{exp.company}</p>
-                  <p>{exp.percentage}</p>
-                </div>
+      <div className="timeline">
+        <div className="timeline-line" />
+        {education.map((ed, i) => (
+          <div className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'} reveal`} key={i}>
+            <div className="timeline-dot" />
+            <article className="timeline-card">
+              <div className="timeline-date">
+                <i className="far fa-calendar" /> {ed.date}
               </div>
-            ))}
+              <h3>{ed.role}</h3>
+              <div className="timeline-company">
+                <i className="fas fa-graduation-cap" /> {ed.company}
+              </div>
+              <p>{ed.description}</p>
+            </article>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
